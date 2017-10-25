@@ -56,25 +56,24 @@ int register_device(void)
 {
 	int result = 0;
 
-	printk( KERN_NOTICE "tt-tuio: register_device() is called." );
+	printk(KERN_NOTICE "tt-tuio: register_device() is called.");
 
 	result = register_chrdev( 0, device_name, &simple_driver_fops );
 	if( result < 0 )
 	{
-		printk( KERN_WARNING "tt-tuio:  can\'t register character device with errorcode = %i", result );
+		printk(KERN_WARNING "tt-tuio: can\'t register character device with errorcode = %i", result);
 		return result;
 	}
 
 	device_file_major_number = result;
-	printk( KERN_NOTICE "tt-tuio: registered character device with major number = %i and minor numbers 0...255"
-		  , device_file_major_number );
+	printk(KERN_NOTICE "tt-tuio: registered character device with major number = %i and minor numbers 0...255", device_file_major_number);
 
 	return 0;
 }
 
 void unregister_device(void)
 {
-   printk( KERN_NOTICE "tt-tuio: unregister_device() is called" );
+   printk(KERN_NOTICE "tt-tuio: unregister_device() is called");
    if(device_file_major_number != 0)
    {
       unregister_chrdev(device_file_major_number, device_name);

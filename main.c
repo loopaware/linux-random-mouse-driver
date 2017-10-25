@@ -15,7 +15,7 @@ MODULE_LICENSE("NoLicense");
 MODULE_AUTHOR("Fredrick Johansson, Tangiamo 2017");
 
 ///
-static int simple_driver_init(void)
+static int tt-tuio_init(void)
 {
 	int result = 0;
 	printk( KERN_NOTICE "tt-tuio: Initialization started" );
@@ -25,12 +25,12 @@ static int simple_driver_init(void)
 }
 
 ///
-static void simple_driver_exit(void)
+static void tt-tuio_driver_exit(void)
 {
 	printk( KERN_NOTICE "tt-tuio: Exiting" );
 	unregister_device();
 }
 
 // Set module function pointers
-module_init(simple_driver_init);
-module_exit(simple_driver_exit);
+module_init(tuio_init);
+module_exit(tuio_driver_exit);
