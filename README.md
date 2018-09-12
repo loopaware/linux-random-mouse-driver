@@ -1,2 +1,2 @@
 # linux-random-mouse-driver
-Code doodle
+Code doodle, nothing more. Has no function.
